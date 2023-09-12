@@ -31,10 +31,17 @@ document.addEventListener("DOMContentLoaded", function() {
         const numberInput = document.querySelector("input[type='number']");
         if (numberInput && numberInput.value !== "") {
             gonderButton.disabled = false;
-            gonderButton.classList.remove("pink-button");
-            gonderButton.classList.add("green-button");
+            gonderButton.classList.remove("green-button");
+            gonderButton.classList.add("pink-button");
         }
     });
 
+    document.getElementById('gonderButton').addEventListener('click', function() {
+        document.getElementById('successAlert').style.display = 'block';
+        // buraya verı akısıyle ılgılı kodlar yazılcaka
+    });
+
+
+ 
     
 });

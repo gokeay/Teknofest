@@ -8,19 +8,16 @@ def index():
 
 @app.route('/submit', methods=['POST'])
 def submit():
-    saat = request.form.get('saat')
-    konum = request.form.get('konum')
-    adet = request.form.get('adet')
-    # Burada verileri istediğiniz şekilde işleyebilirsiniz
+    # Formdan gelen verileri al
+    yer_bilgisi = request.form.get('yerBilgisi')
+    durum_bilgisi = request.form.get('durumBilgisi')
+    foto = request.files.get('foto')
+    saat_bilgisi = request.form.get('saat')
 
-    return render_template('index.html', saat=saat, konum=konum, adet=adet)
+    # Burada verileri işlemek ve gerekli aksiyonları almak istediğiniz kodları ekleyebilirsiniz.
+    # Örneğin, bu verileri bir veritabanına kaydetmek gibi.
 
-@app.route('/kriz', methods=['POST'])
-def kriz():
-    kriz_bilgisi = request.form.get('kriz_bilgisi')
-    # Burada kriz bilgisini işleyebilirsiniz
-
-    return render_template('index.html', kriz_bilgisi=kriz_bilgisi)
+    return "Form başarıyla gönderildi!"
 
 if __name__ == '__main__':
     app.run(debug=True)
