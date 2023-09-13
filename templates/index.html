@@ -1,70 +1,16 @@
-echo '<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
-    <!-- <link rel="stylesheet" href="static/style.css"> -->
     
     <title>Form</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="../static/style.css">
     
 </head>
 <body>
-    <style>body {
-        background-color: #00CED1; /* Turquoise */
-        font-family: Arial, sans-serif;
-    }
-    
-    .container {
-        max-width: 600px;
-        margin: 0 auto;
-        background-color: #ffffff;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    
-    h2 {
-        color: #FF69B4; /* Hot Pink */
-    }
-    
-    .radio-group, .select-group {
-        margin-bottom: 20px;
-    }
-    
-    .radio-group label {
-        display: block;
-        margin-bottom: 10px;
-    }
-    
-    .radio-group input, .select-group select, input[type="file"], input[type="number"] {
-        width: 100%;
-        padding: 10px;
-        box-sizing: border-box;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-    }
-    
-    button {
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        color: #ffffff;
-        font-size: 16px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    
-    .pink-button {
-        background-color: #FF69B4; /* Hot Pink */
-    }
-    
-    .pink-button:hover {
-        background-color: #FF1493; /* Deep Pink */
-    }
-    </style>
-
 
 <div class="container mt-3">
     <h3>görevli girişi</h3>
@@ -96,201 +42,11 @@ echo '<!DOCTYPE html>
     <button type="submit" class="btn btn-primary">giriş yapmaya çabala</button>
     </form>
   </div>
-
-
-
-
-<div class="container mt-3">
-    <h2>giriş</h2>
-    <form action="/action_page.php">
-      <div class="mb-3 mt-3">
-        <label for="email">Kullanıcı adı:</label>
-        <input type="email" class="form-control" id="email" placeholder="kullanıcı adı almış olman lazım" name="email">
-      </div>
-      <div class="mb-3">
-        <label for="pwd">Şifre:</label>
-        <input type="password" class="form-control" id="pwd" placeholder="ve şifre" name="pswd">
-      </div>
-      <div class="form-check mb-3">
-        <label class="form-check-label">
-          <input class="form-check-input" type="checkbox" name="remember"> Bunları sonra sorucam, kaydet
-        </label>
-      </div>
-      <button type="submit" class="btn btn-primary">giriş yapmaya çabala</button>
-    </form>
-    <!-- <h2>giremeyiş</h2>
-    <p>ofis ile iletişime geçiniz: 0555 444 33 22</p> -->
-</div>
 <br>
-<br>
-    <div class="container">
-        <h1>Teknofest Veri Portalı</h1>
-        <!-- <p class="text-info">This container has an extra top padding.</p> -->
-    </div>
-<br>
-<br>
-    <!-- <div class="bg-success p-3"></div> -->
 
-    <div class="container">
-
-        <!-- yer bilgileri -->
-        <form id="form1">
-            <h2>1. Form - Yer Bilgisi:</h2>
-
-            <!-- buton formları -->
-            <!-- <span class="badge bg-primary">Primary</span>
-            <span class="badge bg-secondary">Secondary</span>
-            <span class="badge bg-success">Success</span>
-            <span class="badge bg-danger">Danger</span>
-            <span class="badge bg-warning">Warning</span>
-            <span class="badge bg-info">Info</span>
-            <span class="badge bg-light">Light</span>
-            <span class="badge bg-dark">Dark</span> -->
-            <!-- seçenek 2 -->
-            <div class="select-group">
-                <select name="yerBilgisi" >
-                    <option value="alanSecimi">Yer Bilgisi seçiniz</option>
-                    <option value="yarismaCadiri1">Yarışma Çadırı 1</option>
-                    <option value="yarismaCadiri2">Yarışma Çadırı 2</option>
-                    <option value="yarismaCadiri3">Yarışma Çadırı 3</option>
-                    <option value="ayrismaCadiri4">Ayrışma Çadırı 4</option>
-                    <option value="VIP">VIP</option>
-                    <option value="spoterKule">Spoter Kule</option>
-                    <option value="TSK">TSK</option>
-                </select>
-            </div>
-        </form>
-        
-        <!-- Durum Bilgileri -->
-        <form id="form2" style="display:none;">
-            <h2>2. Form - Durum Bilgisi:</h2>
-            <div class="select-group">
-                <select name="durumBilgisi">
-                    <option value="durumBilgisiSecim">Durum Seçin</option>
-                    <option value="damacanaBilgisi">Damacana Bilgisi</option>
-                    <option value="yemekBilgisi">Yemek Bilgisi</option>
-                    <option value="gorevliBilgisi">Görevli Bilgisi</option>
-                </select>
-            </div>
-        </form>
-        
-        <form id="form3" style="display:none;">
-            <h2>3. Form - Fotoğraf:</h2>
-            <input type="file" name="foto" accept="image/*">
-        </form>
-        
-        <form id="form4" style="display:none;">
-            <h2>4. Form - Saat Bilgisi:</h2>
-            <input type="number" name="saat" min="0" max="23">
-        </form>
-        
-        <!-- <button id="gonderButton" class="pink-button" disabled>GÖNDER</button> -->
-        <button id="gonderButton" type="button" class="btn btn-primary" disabled>GÖNDER</button>
-        
-        <!-- <div id = successAlert class="alert alert-success" style="display: none;">
-            <strong>Success!</strong> Girdiğiniz veriler sisteme iletildi.
-        </div> -->
-        
-        <div id = successAlert class="alert alert-success alert-dismissible fade show" style="display: none;">
-            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-            <strong>Success!</strong> Girdiğiniz veriler sisteme iletildi.
-        </div>
-
-    </div>
+    <li class="text-bg-warning"><a href="/templates/pages/gorevli.html">gorevli sayfasına</a></li>
     
-    
+    <script src="../static/script.js"></script>
 
-    <!-- <div class="container mt-3">  
-
-        <div class="btn-group">
-         <button type="button" class="btn btn-primary">Sony</button>
-         <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
-         </button>
-         <div class="dropdown-menu">
-           <a class="dropdown-item" href="#">Tablet</a>
-           <a class="dropdown-item" href="#">Smartphone</a>
-         </div>  
-       </div>
-
-       <div class="btn-group">
-         <button type="button" class="btn btn-success">Sony</button>
-         <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
-         </button>
-         <div class="dropdown-menu">
-           <a class="dropdown-item" href="#">Tablet</a>
-           <a class="dropdown-item" href="#">Smartphone</a>
-         </div>
-       </div>
-         
-         <div class="btn-group">
-         <button type="button" class="btn btn-danger">Sony</button>
-         <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
-         </button>
-         <div class="dropdown-menu">
-           <a class="dropdown-item" href="#">Tablet</a>
-           <a class="dropdown-item" href="#">Smartphone</a>
-         </div>
-       </div>
-         
-    </div> -->
-    <script>document.addEventListener("DOMContentLoaded", function() {
-        const form1 = document.getElementById("form1");
-        const form2 = document.getElementById("form2");
-        const form3 = document.getElementById("form3");
-        const form4 = document.getElementById("form4");
-        const gonderButton = document.getElementById("gonderButton");
-    
-        form1.addEventListener("change", function() {
-            if (document.querySelector("select[name='yerBilgisi']").value) {
-                form2.style.display = "block";
-                // form1.style.display = "none";
-            }
-        });
-
-        form1.addEventListener("change", function() {
-            if (document.querySelector("select[name='yerBilgisi']").value) {
-                form2.style.display = "block";
-                // form1.style.display = "none";
-            }
-        });
-    
-        form2.addEventListener("change", function() {
-            if (document.querySelector("select[name='durumBilgisi']").value) {
-                form3.style.display = "block";
-                // form2.style.display = "none";
-            }
-        });
-    
-        form3.addEventListener("change", function() {
-            const fileInput = document.querySelector("input[type='file']");
-            if (fileInput && fileInput.files.length > 0) {
-                form4.style.display = "block";
-                // form3.style.display = "none";
-            }
-        });
-    
-        form4.addEventListener("change", function() {
-            const numberInput = document.querySelector("input[type='number']");
-            if (numberInput && numberInput.value !== "") {
-                gonderButton.disabled = false;
-                gonderButton.classList.remove("green-button");
-                gonderButton.classList.add("pink-button");
-            }
-        });
-
-        document.getElementById('gonderButton').addEventListener('click', function() {
-            document.getElementById('successAlert').style.display = 'block';
-            // buraya verı akısıyle ılgılı kodlar yazılcaka
-        });
-    });
-
-
-    </script>
-
-    <script src="static/script.js"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script> -->
-    
 </body>
-</html> ' | sudo tee /var/www/html/index.html
+</html>
