@@ -6,6 +6,10 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
+@app.route('/gorevli.html')
+def gorevli():
+    return render_template('pages/gorevli.html')
+
 @app.route('/submit', methods=['POST'])
 def submit():
     # Formdan gelen verileri al

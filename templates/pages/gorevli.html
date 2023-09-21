@@ -13,103 +13,508 @@
         <div class="container text-center">
             <h3>Teknofest Veri Portalı</h3>
         </div>
-
         <br>
 
         <div class="container">
-            <button id="krizButton" type="button" class="btn btn-danger btn-lg">Kriz var</button>
+
+        <form method="POST" action="veri_kaydet.php">
+
             <br>
             <br>
-            <div class="btn-group" role="group">
-                <button type="button" class="btn btn-success btn-sm mx-5 d-none">normal</button>
-                <button type="button" class="btn btn-warning mx-5 d-none">KRİTİK</button>
-                <button type="button" class="btn btn-danger btn-lg mx-5 d-none">hayat memat meselesi</button>
+
+            <div class="container">
+                <button id="krizButton" type="button" class="btn btn-success btn-lg">Sorun var</button>
+    
+                <br>
+    
+                <div id="hiddenContent" class="mt-3 d-none">
+                    <input type="text" class="form-control mb-2" id="textBox" placeholder="Buraya yazınız...">
+                    <button type="button" class="btn btn-primary float-right" id="sendButton">İlet</button>
+                </div>
+    
+                <div id = krizAlert class="alert alert-success alert-dismissible fade show" style="display: none;">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    <strong>Success!</strong> Kriz Feyza ve Arzum'a iletildi, her şey yolunda!
+                </div>
             </div>
 
-            <div id="hiddenContent" class="d-none mt-3">
-                <input type="text" class="form-control mb-2" id="textBox" placeholder="Buraya yazınız...">
-                <button type="button" class="btn btn-primary float-right" id="sendButton">İlet</button>
+            <!-- SAAT -->
+            <!-- <form id="form1"> -->
+            <label for="saat">Saat:</label>
+            <div id="saatSecici">
+                <input type="number" id="saatSaat" name="saatSaat"min="0" max="23" placeholder="Saat" required>
+                <input type="number" id="saatDakika" name="saatDakika" min="0" max="59" placeholder="Dakika" required>
             </div>
-        </div>
+            <!-- </form> -->
+            
+            <br>
 
-        <br>
-        
-        <div class="container">
-            <form id="form1">
-                <h2>1. Form - Yer Bilgisi:</h2>
+            <!-- KONUM -->
+            <!-- <form id="form2"> -->
+                <h2>Yer Bilgisi:</h2>
                 <div class="select-group">
-                    <select name="yerBilgisi" >
+                    <select id="KONUM" name="yerBilgisi" >
                         <option value="alanSecimi">Yer Bilgisi seçiniz</option>
-                        <option value="yarismaCadiri1">Yarışma Çadırı 1</option>
-                        <option value="yarismaCadiri2">Yarışma Çadırı 2</option>
-                        <option value="yarismaCadiri3">Yarışma Çadırı 3</option>
-                        <option value="ayrismaCadiri4">Ayrışma Çadırı 4</option>
+                        <option value="yarismaCadiri1">Turizm Teknolojileri Çadırı</option>
+                        <option value="yarismaCadiri2">Çevre, Enerji ve İklim Çadırı</option>
+                        <option value="yarismaCadiri3">Engelsiz Yaşam Çadırı</option>
+                        <option value="yarismaCadiri4">Sağlık ve İyi Yaşam Çadırı</option>
                         <option value="VIP">VIP</option>
                         <option value="spoterKule">Spoter Kule</option>
                         <option value="TSK">TSK</option>
                     </select>
                 </div>
-            </form>
-            
-            <form id="form2" style="display:none;">
-                <h2>2. Form - Durum Bilgisi:</h2>
-                <div class="select-group">
-                    <select name="durumBilgisi">
-                        <option value="durumBilgisiSecim">Durum Seçin</option>
-                        <option value="damacanaBilgisi">Damacana Bilgisi</option>
-                        <option value="yemekBilgisi">Yemek Bilgisi</option>
-                        <option value="gorevliBilgisi">Görevli Bilgisi</option>
-                    </select>
+            <!-- </form> -->
+
+            <!-- CATERİNG -->
+            <!-- <form id="form3" style="display:none;"> -->
+                <h2>Catering Bilgisi:</h2>
+
+                <!-- <ul class="list-group list-group-horizontal">
+                    <div class="input-group mb-3">
+                        <div class="input-group-text">
+                          <input type="checkbox">
+                        </div>
+                        <input type="text" class="form-control" placeholder="Mevcut">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-text">
+                          <input type="checkbox">
+                        </div>
+                        <input type="text" class="form-control" placeholder="Yeni geldi">
+                    </div>
+                </ul> -->
+                <h4>İkramlık:</h4>
+
+                <ul class="list-group list-group-horizontal">
+                    <ul class="list-group list-group-vertical">
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="radio3" name="ikramlikDurum" value="Bitt">Teslimat geldi
+                            <label class="form-check-label" for="radio3"></label>
+                        </div>
+                        <div class="form-control">
+                            <select id="secilenDegerIkramlikTeslim" name="ikramlikBilgisi" style="display:none;" >
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+                                <option value="32">32</option>
+                                <option value="33">33</option>
+                                <option value="34">34</option>
+                                <option value="35">35</option>
+                                <option value="36">36</option>
+                                <option value="37">37</option>
+                                <option value="38">38</option>
+                                <option value="39">39</option>
+                                <option value="40">40</option>
+                                <option value="41">41</option>
+                                <option value="42">42</option>
+                                <option value="43">43</option>
+                                <option value="44">44</option>
+                                <option value="45">45</option>
+                                <option value="46">46</option>
+                                <option value="47">47</option>
+                                <option value="48">48</option>
+                                <option value="49">49</option>
+                                <option value="50">50</option>
+                            </select>
+                        </div>
+                    </ul>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" id="radio1" name="ikramlikDurum" value="Mevcut">Mevcut
+                        <label class="form-check-label" for="radio1"></label>
+                    </div>
+                    <div class="mx-2"></div>
+
+                    <ul class="list-group list-group-vertical">
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="radio2" name="ikramlikDurum" value="Bitti">Bitti
+                            <label class="form-check-label" for="radio2"></label>
+                        </div>
+                        <div class="form-control">
+                            <select id="secilenDegerIkramlikBitti" name="yerBilgisi" style="display:none;" >
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+                                <option value="32">32</option>
+                                <option value="33">33</option>
+                                <option value="34">34</option>
+                                <option value="35">35</option>
+                                <option value="36">36</option>
+                                <option value="37">37</option>
+                                <option value="38">38</option>
+                                <option value="39">39</option>
+                                <option value="40">40</option>
+                                <option value="41">41</option>
+                                <option value="42">42</option>
+                                <option value="43">43</option>
+                                <option value="44">44</option>
+                                <option value="45">45</option>
+                                <option value="46">46</option>
+                                <option value="47">47</option>
+                                <option value="48">48</option>
+                                <option value="49">49</option>
+                                <option value="50">50</option>
+                            </select>
+                        </div>
+                    </ul>
+                </ul>
+
+                <br>
+
+                <h4>İçecek:</h4>
+                <ul class="list-group list-group-horizontal">
+                    <h6>Çay:</h6>
+                    <div class="mx-2"></div>
+                    <div class="mx-2"></div>
+                    <div class="mx-2"></div>
+                    <div class="mx-2"></div>
+                    <div class="mx-2"></div>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" id="radioCay1" name="cayDurum" value="Mevcut">Mevcut
+                        <label class="form-check-label" for="radioCay1"></label>
+                    </div>
+                    <div class="mx-2"></div>
+                    <div class="mx-2"></div>
+                    <ul class="list-group list-group-vertical">
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="radioCay2" name="cayDurum" value="Bitt">Bitti
+                            <label class="form-check-label" for="radioCay2"></label>
+                        </div>
+                        <div class="form-control">
+                            <select id="secilenDegerCayBitti" name="yerBilgisi" style="display:none;" >
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+                                <option value="32">32</option>
+                                <option value="33">33</option>
+                                <option value="34">34</option>
+                                <option value="35">35</option>
+                                <option value="36">36</option>
+                                <option value="37">37</option>
+                                <option value="38">38</option>
+                                <option value="39">39</option>
+                                <option value="40">40</option>
+                                <option value="41">41</option>
+                                <option value="42">42</option>
+                                <option value="43">43</option>
+                                <option value="44">44</option>
+                                <option value="45">45</option>
+                                <option value="46">46</option>
+                                <option value="47">47</option>
+                                <option value="48">48</option>
+                                <option value="49">49</option>
+                                <option value="50">50</option>
+                            </select>
+                        </div>
+                    </ul>
+                </ul>
+
+                <ul class="list-group list-group-horizontal">
+                    <h6>Kahve:</h6>
+                    <div class="mx-2"></div>
+                    <div class="mx-2"></div>
+                    <div class="mx-2"></div>
+                    <div class="mx-2"></div>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" id="radioKahve1" name="kahveDurum" value="Mevcut">Mevcut
+                        <label class="form-check-label" for="radioKahve1"></label>
+                    </div>
+                    <div class="mx-2"></div>
+                    <div class="mx-2"></div>
+                    <ul class="list-group list-group-vertical">
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="radioKahve2" name="kahveDurum" value="Bitt">Bitti
+                            <label class="form-check-label" for="radioKahve2"></label>
+                        </div>
+                        <div class="form-control">
+                            <select id="secilenDegerKahveBitti" name="yerBilgisi" style="display:none;" >
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+                                <option value="32">32</option>
+                                <option value="33">33</option>
+                                <option value="34">34</option>
+                                <option value="35">35</option>
+                                <option value="36">36</option>
+                                <option value="37">37</option>
+                                <option value="38">38</option>
+                                <option value="39">39</option>
+                                <option value="40">40</option>
+                                <option value="41">41</option>
+                                <option value="42">42</option>
+                                <option value="43">43</option>
+                                <option value="44">44</option>
+                                <option value="45">45</option>
+                                <option value="46">46</option>
+                                <option value="47">47</option>
+                                <option value="48">48</option>
+                                <option value="49">49</option>
+                                <option value="50">50</option>
+                            </select>
+                        </div>
+                    </ul>
+                </ul>
+
+                <ul class="list-group list-group-horizontal">
+                    <h6>Soğuk İçecek:</h6>
+                    <div class="mx-2"></div>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" id="radioSoguk1" name="sogukDurum" value="Mevcut">Mevcut
+                        <label class="form-check-label" for="radioSoguk1"></label>
+                    </div>
+                    <div class="mx-2"></div>
+
+                    <div class="mx-2"></div>
+
+                    <ul class="list-group list-group-vertical">
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="radioSoguk2" name="sogukDurum" value="Bitt">Bitti
+                            <label class="form-check-label" for="radioSoguk2"></label>
+                        </div>
+                        <div class="form-control">
+                            <select id="secilenDegerSogukBitti" name="yerBilgisi" style="display:none;" >
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+                                <option value="32">32</option>
+                                <option value="33">33</option>
+                                <option value="34">34</option>
+                                <option value="35">35</option>
+                                <option value="36">36</option>
+                                <option value="37">37</option>
+                                <option value="38">38</option>
+                                <option value="39">39</option>
+                                <option value="40">40</option>
+                                <option value="41">41</option>
+                                <option value="42">42</option>
+                                <option value="43">43</option>
+                                <option value="44">44</option>
+                                <option value="45">45</option>
+                                <option value="46">46</option>
+                                <option value="47">47</option>
+                                <option value="48">48</option>
+                                <option value="49">49</option>
+                                <option value="50">50</option>
+                            </select>
+                        </div>
+                    </ul>
+                </ul>
+
+                <div>
+                    <input type="number" class="form-control" placeholder="Garson sayısı gir">
                 </div>
 
-                <div class="row" id="damacanaRow" style="display:none;">
-                    <div class="col-md-6">
-                        <form action="/action_page.php">
-                            <div class="form-check">
-                                <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>
-                                <label class="form-check-label" for="radio1">damacana teslim edildi</label>
-                            </div>
-                            <div class="form-check">
-                                <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option1">
-                                <label class="form-check-label" for="radio2">damacana teslim edilmedi</label>
-                            </div>
-                            <div class="form-check">
-                                <input type="radio" class="form-check-input" id="radio3" name="optradio" value="option2">
-                                <label class="form-check-label" for="radio3">damacana boş</label>
-                            </div>
-                            <div class="form-check">
-                                <input type="radio" class="form-check-input" id="radio4" name="optradio" value="option2">
-                                <label class="form-check-label" for="radio4">damacana dolu</label>
-                            </div>
-                        </form>
+                <br>
 
-                        <div id="damacanaAdet" class="mt-2">
-                            <input type="text" class="form-control mb-2" id="damacanaAdetText" placeholder="Adet Giriniz">
-                            <!-- <span class="input-group-text">adet</span> -->
-                        </div>
-
+                <div class="btn-group" role="group">
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">09.00 kontrolü
+                        <label class="form-check-label" for="radio2"></label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">14.00 kontrolü
+                        <label class="form-check-label" for="radio2"></label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">bilgilendirme
+                        <label class="form-check-label" for="radio2"></label>
                     </div>
                 </div>
-            </form>
-            
-            <form id="form3" style="display:none;">
-                <h2>3. Form - Fotoğraf:</h2>
+
                 <input type="file" name="foto" accept="image/*">
-            </form>
-            
-            <form id="form4" style="display:none;">
-                <h2>4. Form - Saat Bilgisi:</h2>
-                <input type="number" name="saat" min="0" max="23">
-            </form>
-                        
-            <button id="gonderButton" type="button" class="btn btn-primary" disabled>GÖNDER</button>
-            <div id = successAlert class="alert alert-success fade show" style="display: none;">
+            <!-- </form> -->
+
+
+            <!-- DAMACANA -->
+            <!-- <form id="form4" style="display:none;"> -->
+                <h2>Damacana Bilgisi:</h2>
+                <div class="select-group">
+                    <div class="input-group">
+                        <input type="text" id="gelenDamacana" class="form-control" placeholder="Teslim alınan damacana sayısı">
+                        <span class="input-group-text">Adet</span>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" id="talepEdilenDamacana" class="form-control" placeholder="Talep edilen damacana sayısı">
+                        <span class="input-group-text">Adet</span>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <input type="text" id="doluDamacana" class="form-control" placeholder="Dolu damacana sayısı">
+                    <span class="input-group-text">Adet</span>
+                </div>
+
+                <div class="input-group">
+                    <input type="text" id="bosDamacana" class="form-control" placeholder="Boş damacana sayısı">
+                    <span class="input-group-text">Adet</span>
+                </div>
+
+                <input type="file" name="foto" accept="image/*">
+            <!-- </form> -->
+
+            <br>
+            <br>
+
+            <!-- <form id="form5" style="display:none;">
+                <h2>Coffee Break Bilgisi:</h2>
+                <div class="select-group">
+                    <select name="cBreakBilgisi">
+                        <option value="cBreakDurumSecimi">Durum seç</option>
+                        <option value="cBreakTeslimatBilgisi">Teslimat Geldi</option>
+                        <option value="cBreakTalepBilgisi">Talep</option>
+                    </select>
+                    <input type="text" class="form-control" placeholder="Adet gir">
+                </div>
+                <input type="file" name="foto" accept="image/*">
+            </form> -->
+
+            <button id="gonderButton" type="button" class="btn btn-primary">GÖNDER</button>
+
+            <div id = successAlert class="alert alert-success alert-dismissible fade show" style="display:none;">
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                 <strong>Success!</strong> Girdiğiniz veriler sisteme iletildi.
             </div>
 
         </div>
-
         <script src="../../static/script.js"></script>
-
     </body>
 </html>
