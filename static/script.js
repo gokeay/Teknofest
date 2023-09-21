@@ -1,227 +1,159 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const form1 = document.getElementById("form1");
-    const form2 = document.getElementById("form2");
-    const form3 = document.getElementById("form3");
-    const form4 = document.getElementById("form4");
-    // const form5 = document.getElementById("form5");
-    // const form6 = document.getElementById("form6");
-    const gonderButton = document.getElementById("gonderButton");
-    // const krizButton = document.getElementById("krizButton");
-    // const krizButton1 = document.getElementById("krizButton1");
-    // const krizButton2 = document.getElementById("krizButton2");
-    // const krizButton3 = document.getElementById("krizButton3");
-    const sendButton = document.getElementById("sendButton");
 
-    const damacanaSelect = document.getElementById("damacanaSelect");
-    const damacanaInput = document.getElementById("damacanaInput");
-    const successAlert = document.getElementById("successAlert");
-
-    const radio3 = document.getElementById('radio3');
-    const radio1 = document.getElementById('radio1');
-    const radio2 = document.getElementById('radio2');
-    const secilenDegerIkramlikTeslim = document.getElementById('secilenDegerIkramlikTeslim');
-    const secilenDegerIkramlikBitti = document.getElementById('secilenDegerIkramlikBitti');
-    const secilenDegerCayBitti = document.getElementById('secilenDegerCayBitti');
-    const secilenDegerKahveBitti = document.getElementById('secilenDegerKahveBitti');
-    const secilenDegerSogukBitti = document.getElementById('secilenDegerSogukBitti');
+    // Soğuk içecek seçeneklerinden biri seçildiğinde durumBilgisi görünür hale gelsin
     const radioCay1 = document.getElementById('radioCay1');
     const radioCay2 = document.getElementById('radioCay2');
     const radioKahve1 = document.getElementById('radioKahve1');
     const radioKahve2 = document.getElementById('radioKahve2');
     const radioSoguk1 = document.getElementById('radioSoguk1');
     const radioSoguk2 = document.getElementById('radioSoguk2');
-    
+    const durumBilgisi = document.getElementById('durumBilgisi');
+    const cateringBilgisi = document.getElementById('cateringBilgisi');
+    const damacanaBilgisi = document.getElementById('damacanaBilgisi');
 
-    radio3.addEventListener('change', function() {
-        secilenDegerIkramlikTeslim.style.display = this.checked ? 'block' : 'none';
-        secilenDegerIkramlikBitti.style.display = 'none';
-    });
+    const damacanaTalep = document.getElementById('damacanaTalep');
+    const damacanaTeslim = document.getElementById('damacanaTeslim');
+    const damacanaTeslimAdet = document.getElementById('damacanaTeslimAdet');
+    const damacanaTalepAdet = document.getElementById('damacanaTalepAdet');
+    const krizDurumu = document.getElementById('krizDurumu');
+    const krizButton = document.getElementById('krizButton');
+    const hiddenContent = document.getElementById('hiddenContent');
+    const sendButton = document.getElementById('sendButton');
+    const krizAlert = document.getElementById('krizAlert');
 
-    radio1.addEventListener('change', function() {
-        if (this.checked) {
-        secilenDegerIkramlikTeslim.style.display = 'none';
-        secilenDegerIkramlikBitti.style.display = 'none';
+    var clickCountTalep = 0;
 
-        }
-    });
+document.getElementById('damacanaTalep').addEventListener('click', function() {
+    clickCountTalep++;
+    var damacanaTalepAdet = document.getElementById('damacanaTalepAdet');
 
-    radio2.addEventListener('change', function() {
-        if (this.checked) {
-        secilenDegerIkramlikTeslim.style.display = 'none';
-        secilenDegerIkramlikBitti.style.display = this.checked ? 'block' : 'none';
-        }
-    });
+    if (clickCountTalep % 2 === 1) {
+        damacanaTalepAdet.style.display = "block";
+        damacanaTalepAdet.disabled = false;
+    } else {
+        damacanaTalepAdet.style.display = "none";
+        damacanaTalepAdet.disabled = true;
+    }
+});
 
+document.getElementById('damacanaTeslim').addEventListener('click', function() {
+    clickCountTalep++;
+    var damacanaTeslimAdet = document.getElementById('damacanaTeslimAdet');
 
+    if (clickCountTalep % 2 === 1) {
+        damacanaTeslimAdet.style.display = "block";
+        damacanaTeslimAdet.disabled = false;
+    } else {
+        damacanaTeslimAdet.style.display = "none";
+        damacanaTeslimAdet.disabled = true;
+    }
+});
 
-    radioCay1.addEventListener('change', function() {
-        if (this.checked) {
-            secilenDegerCayBitti.style.display = 'none';
-        }
-    });
-
-    radioCay2.addEventListener('change', function() {
-        if (this.checked) {
-            secilenDegerCayBitti.style.display = this.checked ? 'block' : 'none';
-        }
-    });
-
-
-
-    radioKahve1.addEventListener('change', function() {
-        if (this.checked) {
-            secilenDegerKahveBitti.style.display = 'none';
-        }
-    });
-
-    radioKahve2.addEventListener('change', function() {
-        if (this.checked) {
-            secilenDegerKahveBitti.style.display = this.checked ? 'block' : 'none';
-        }
-    });
-
-
-    radioSoguk1.addEventListener('change', function() {
-        if (this.checked) {
-            secilenDegerSogukBitti.style.display = 'none';
-        }
-    });
-
-    radioSoguk2.addEventListener('change', function() {
-        if (this.checked) {
-            secilenDegerSogukBitti.style.display = this.checked ? 'block' : 'none';
-        }
-    });
-
-
-
-    // radio2.addEventListener('change', function() {
-    //     secilenDegerDiv.style.display = this.checked ? 'none';
-    // });
-
-    
-    // // form1 ve form2 deki inputlar degistiginde checkForms calısır ve form3 u aktıf eder
-    // form1.addEventListener("input", function() {
-    //     checkForms();
-    // });
-
-    form2.addEventListener("input", function() {
-        checkForms();
-    });
-
-    // Form 2'de dosya seçildiğinde
-    form3.addEventListener("change", function() {
-        if (this.querySelector('input[type="file"]').files.length > 0) {
-            form4.style.display = "block";
-        }
-    });
-
-    form4.addEventListener("change", function() {
-        if (this.querySelector('input[type="file"]').files.length > 0) {
-            gonderButton.disabled = false;
-        }
-    });
-
-    gonderButton.addEventListener("click", function() {
-        document.getElementById('successAlert').style.display = 'block';
-    });
-
-    // gonderButton.addEventListener('click', function() {
-    //     const saat = document.querySelector('#form1 input[name="saat"]').value;
-    //     const yerBilgisi = document.querySelector('#form2 select[name="yerBilgisi"]').value;
-    //     const damacanaBilgisi = document.querySelector('#form3 select[name="damacanaBilgisi"]').value;
-    //     const adetGirDamacana = document.querySelector('#form3 input[placeholder="Adet gir"]').value;
-    //     const doluDamacana = document.querySelector('#form3 input[placeholder="Dolu damacana sayısı"]').value;
-    //     const bosDamacana = document.querySelector('#form3 input[placeholder="Boş damacana sayısı"]').value;
-    //     const yemekBilgisi = document.querySelector('#form4 select[name="yemekBilgisi"]').value;
-    //     const adetGirYemek = document.querySelector('#form4 input[placeholder="Adet gir"]').value;
-    //     const garsonSayisi = document.querySelector('#form5 input[placeholder="Garson sayısı gir"]').value;
-
-    //     console.log("Saat: " + saat);
-    //     console.log("Yer Bilgisi: " + yerBilgisi);
-    //     console.log("Damacana Bilgisi: " + damacanaBilgisi);
-    //     console.log("Adet Gir (Damacana): " + adetGirDamacana);
-    //     console.log("Dolu Damacana: " + doluDamacana);
-    //     console.log("Boş Damacana: " + bosDamacana);
-    //     console.log("Yemek Bilgisi: " + yemekBilgisi);
-    //     console.log("Adet Gir (Yemek): " + adetGirYemek);
-    //     console.log("Garson Sayısı: " + garsonSayisi);
-    //     document.getElementById('successAlert').style.display = 'block';
-    //     // buraya verı akısıyle ılgılı kodlar yazılcaka
-    // });
-
-    // const fs = require('fs');
-    // const dosyaYolu = 'saatBilgisi.txt'; // Oluşturulacak dosyanın yolu
-
-    // fs.writeFile(dosyaYolu, saat, yerBilgisi, damacanaBilgisi, adetGirDamacana, doluDamacana, bosDamacana, yemekBilgisi, adetGirYemek, garsonSayisi,  (hata) => {
-    //     if (hata) throw hata;
-    //     console.log('Dosya oluşturuldu ve veri kaydedildi!');
-    // });
-
-
-    // sorun var butonuna basıldıgında sorun yazmak ıcın text kutusu acılır
-    sendButton.addEventListener('click', function() {
-        document.getElementById('hiddenContent').classList.remove('d-none');
-    });
-    
-    // kriz bilgisini alır ve kriz içerigini yeniden görünmez yapar
-    sendButton.addEventListener('click', function() {
-        // Burada yazılan mesajı alabilirsiniz
-        var message = document.getElementById('textBox').value;
-        console.log('Gönderilen Mesaj:', message);
-        // İleti gönderildikten sonra gizleme veya başka bir işlem yapma burada gerçekleştirilebilir
-        document.getElementById('hiddenContent').classList.add('d-none');
-        document.querySelectorAll('.btn-group .btn').forEach(function(button) {
-            button.classList.add('d-none'); });
-        document.getElementById('krizAlert').style.display = 'block';
-
-    });
-
-
-    // checkbox ta kutu secildiyse bu bilgi ile baska bir sey yapmak icin
-    // document.querySelector('input[placeholder="Boş Damacana Adedi"]').addEventListener("input", function() {
-    //     const nextElement = this.nextElementSibling;
-    //     if (this.value.trim() !== "") {
-    //         nextElement.style.display = "block";
-    //     } else {
-    //         nextElement.style.display = "none";
-    //     }
-    // });
-
-    
-    // form1 ve form2 deki inputlar degistiginde checkForms calısır ve form3 u aktıf eder
-    function checkForms() {
-        // const validForm1 = checkForm1();
-        const validForm2 = checkForm2();
-
-        if (validForm2) {
-            form3.style.display = "block";
+    durumBilgisi.addEventListener('change', function () {
+        var cateringBilgisiDiv = document.getElementById('cateringBilgisi');
+        if (this.value === 'cateringInfo') {
+            cateringBilgisiDiv.style.display = 'block';
         } else {
-            form3.style.display = "none";
+            cateringBilgisiDiv.style.display = 'none';
         }
-    }
+    });
 
-    // function checkForm1() {
-    //     // form1'in geçerli olup olmadığını kontrol et
-    //     return form1.querySelector('input[name="saat"]').value.trim() !== "";
-    // }
+    durumBilgisi.addEventListener('change', function () {
+        var damacanaBilgisiDiv = document.getElementById('damacanaBilgisi');
+        if (this.value === 'damacanaInfo') {
+            damacanaBilgisiDiv.style.display = 'block';
+        } else {
+            damacanaBilgisiDiv.style.display = 'none';
+        }
+    });
 
-    function checkForm2() {
-        // form2'nin geçerli olup olmadığını kontrol et
-        return form2.querySelector('select[name="yerBilgisi"]').value !== "alanSecimi";
-    }
+    krizButton.addEventListener('click', function () {
+        hiddenContent.classList.remove('d-none');
+    });
+
+    sendButton.addEventListener('click', function() {
+        krizAlert.style.display = 'block';
+        hiddenContent.classList.add('d-none');
+        document.getElementById('textBox').value = '';
+    });
+
+    krizDurumu.addEventListener('change', function () {
+        const altSeceneklerDiv = document.getElementById('altSecenekler');
+        if (this.value === 'const') {
+            altSeceneklerDiv.style.display = 'block';
+        } else {
+            altSeceneklerDiv.style.display = 'none';
+        }
+    });
+
+    durumBilgisi.addEventListener('change', function() {
+        if (this.value === "CateringInfo") {
+            altDurumBilgisiCatering1.style.display = 'block';
+        } else if (this.value === "damacanaInfo") {
+            altDurumBilgisiDamacana1.style.display = 'block';
+        }
+    });
+
+    // Teslimat geldi kutucuğu seçildiğinde
+    document.getElementById('radio4').addEventListener('change', function() {
+        document.getElementById('ikramlikGeldiTalep').style.display = 'block';
+    });
+
+    // Mevcut kutucuğu seçildiğinde
+    document.getElementById('radio1').addEventListener('change', function() {
+        document.getElementById('ikramlikGeldiTalep').style.display = 'none';
+    });
+    // getelementsByName ile de yapılabilir
+    document.getElementById('radio2').addEventListener('change', function() {
+        document.getElementById('ikramlikGeldiTalep').style.display = 'none';
+    });
+    // bitti kutucuğu seçildiğinde
+    document.getElementById('radio3').addEventListener('change', function() {
+        document.getElementById('ikramlikGeldiTalep').style.display = 'none';
+    });
+
+    // Saat seçiciyi oluşturan JavaScript kodu
+    const saatSecici = document.getElementById("saatSecici");
+    const saatSaat = document.getElementById("saatSaat");
+    const saatDakika = document.getElementById("saatDakika");
+
+    saatSecici.style.display = "flex";
+
+    saatSaat.addEventListener("input", () => {
+        if (saatSaat.value.length > 2) {
+            saatSaat.value = saatSaat.value.slice(0, 2);
+        }
+    });
+
+    saatDakika.addEventListener("input", () => {
+        if (saatDakika.value.length > 2) {
+            saatDakika.value = saatDakika.value.slice(0, 2);
+        }
+    });
+
+    const garsonAdet = document.getElementById("garsonAdet");
+
+    garsonAdet.addEventListener("input", () => {
+        if (garsonAdet.value.length > 6) {
+            garsonAdet.value = garsonAdet.value.slice(0, 6);
+        }
+    });  
+
+    // durum bilgisine göre alt durum bilgisi görünür hale gelsin
+    durumBilgisi.addEventListener('change', function() {
+        var selectedOption = this.value;
+        if (selectedOption === 'cateringInfo') {
+            cateringBilgisi.style.display = 'block';
+        } else {
+            cateringBilgisi.style.display = 'none';
+        }
+
+        if (selectedOption === 'damacanaInfo') {
+            damacanaBilgisi.style.display = 'block';
+        } else {
+            damacanaBilgisi.style.display = 'none';
+        }
+    });
     
 });
 
-
-// form2.addEventListener("change", function() {
-//     const selectedOption = this.querySelector('select[name="yerBilgisi"]').value;
-//     gonderButton.dataset.selectedOption = selectedOption;
-//     gonderButton.disabled = selectedOption === "alanSecimi";
-// });
-
-// gonderButton.addEventListener("click", function() {
-//     const selectedOption = this.dataset.selectedOption;
-//     // Seçilen seçeneği burada kullanabilirsiniz
-//     console.log("Seçilen seçenek: " + selectedOption);
-// });
